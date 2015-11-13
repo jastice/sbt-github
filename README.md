@@ -1,12 +1,6 @@
 # sbt github
 
-publish sbt projects to github
+Publish sbt projects to github.
 
+FOR EDUCATIONAL PURPOSES ONLY DO NOT USE YOU WILL BE UNHAPPY WITH THE RESULTS
 
-## Building
-
-This project requires SBT 0.13
-
-### Quickstart
-
-    sbt update compile test run
