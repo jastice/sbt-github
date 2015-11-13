@@ -9,3 +9,4 @@ project/target
 .project
 .settings
 bin
+secrets.sbt
