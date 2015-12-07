@@ -16,6 +16,7 @@ object GithubPlugin extends AutoPlugin {
 
   object autoImport {
     val githubToken = settingKey[String]("GitHub API token. Don't commit this in your project!")
+    val githubRemote = settingKey[String]("The GitHub git remote")
 
     // TODO reuse keys: name, description
     // TODO add keys for repo options: private, has_issues, has_wiki, has_downloads, default_branch
@@ -56,11 +57,9 @@ object GithubPlugin extends AutoPlugin {
       val gitRunner = git.runner.value
       def gitRun(args: String*) = gitRunner.apply(args:_*)(dir,log)
 
-      val githubRemote = "origin" // TODO make this a setting?
-
       val remotes = gitRun("remote")
 
-      if (remotes contains githubRemote) {
+      if (remotes contains githubRemote.value) {
         // check github if repo already exists
         for {
           user <- githubUser.value
